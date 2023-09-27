@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GetRecT</string>
+    <string name="pick_from_gallery">Pick From Gallery</string>
 </resources>
