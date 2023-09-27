@@ -1,0 +1,4 @@
+grassy
+rocky
+sandy
+marshy
