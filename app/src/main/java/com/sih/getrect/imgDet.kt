@@ -82,7 +82,6 @@ class imgDet : AppCompatActivity() {
         }
 
 
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -91,28 +90,26 @@ class imgDet : AppCompatActivity() {
         if (requestCode == 13) {
             val uri = data?.data
             bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
-
-
+//
+//
 //            val h = bitmap.height
 //            val w = bitmap.width
-//
-//            Log.d("Height", h.toString())
-//            Log.d("Width", w.toSt ring())
 //
 //            var H = 0
 //            var W = 0
 //
-//            if(h<w){
+//            if(h < w){
 //                H = 224
 //                W = (224*w/h).toInt()
 //                bitmap = Bitmap.createScaledBitmap(bitmap,W,H,false)
-//                bitmap = Bitmap.createBitmap(bitmap,0,((W/2)-112).toInt())
+//                bitmap = Bitmap.createBitmap(bitmap,(W/2 - 112), 0,224,224)
 //            }
 //            else{
 //                W = 224
 //                H = (224*h/w).toInt()
+//                bitmap = Bitmap.createScaledBitmap(bitmap,W,H,false)
+//                bitmap = Bitmap.createBitmap(bitmap,(H/2 - 112), W,224,224)
 //            }
-
 
 
             imgShow.setImageBitmap(bitmap)
@@ -132,13 +129,14 @@ class imgDet : AppCompatActivity() {
         }
 
     }
-    fun predImage(bitmap: Bitmap){
+
+    fun predImage(bitmap: Bitmap) {
         var tensorImage = TensorImage(DataType.FLOAT32)
         tensorImage.load(bitmap)
 
 
         tensorImage = imageProcessor.process(tensorImage)
-        Log.d("TensorImage",tensorImage.tensorBuffer.toString())
+        Log.d("TensorImage", tensorImage.tensorBuffer.toString())
 
 
         // MobileNet
@@ -179,26 +177,26 @@ class imgDet : AppCompatActivity() {
         val outputFeature0 = outputs.outputFeature0AsTensorBuffer.floatArray
 
         var maxIdx = 0
-        var flag = -1
-        var percentage = 0
+        var flag = 0.0
         outputFeature0.forEachIndexed { index, fl ->
-            Log.d("OutputFeature",outputFeature0.toString())
-            Log.d("OutputFeature",fl.toString())
-            Log.d("OutputFeature",maxIdx.toString())
-            if (outputFeature0[maxIdx] <= fl && fl > 0.4) {
+            Log.d("index",index.toString())
+            Log.d("OutputFeature", outputFeature0[maxIdx].toString())
+            Log.d("OutputFeature fl", fl.toString())
+            Log.d("OutputFeature", maxIdx.toString())
+            if (outputFeature0[maxIdx] <= fl) {
                 maxIdx = index
-                flag = 0
-                    percentage = (fl * 100).toInt()
+                flag = fl.toDouble()
 
             }
 
-
         }
-        if (flag == -1) {
-            val pred = "Invalid Image "
+        if(flag<0.5){
+
+            val pred = "Invalid Image"
             predTxt.setText(pred)
-        } else {
-            val pred = "The above object is: " + GetRectlabels[maxIdx] + " (" + percentage.toString() + "%)"
+        }else {
+            Log.d("Percent", flag.toString())
+            val pred = "The above object is: " + GetRectlabels[maxIdx]
             predTxt.setText(pred)
         }
 // Releases model resources if no longer used.
