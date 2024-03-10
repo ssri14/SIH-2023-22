@@ -61,7 +61,7 @@
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:padding="10dp"
-        android:text="The above object is:"
+        android:text="The above terrain is:"
         android:textSize="20sp" />
 
 </LinearLayout>

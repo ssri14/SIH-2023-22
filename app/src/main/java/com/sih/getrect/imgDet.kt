@@ -196,7 +196,7 @@ class imgDet : AppCompatActivity() {
             predTxt.setText(pred)
         }else {
             Log.d("Percent", flag.toString())
-            val pred = "The above object is: " + GetRectlabels[maxIdx]
+            val pred = "The above terrain is: " + GetRectlabels[maxIdx]
             predTxt.setText(pred)
         }
 // Releases model resources if no longer used.
