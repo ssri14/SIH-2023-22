@@ -53,8 +53,10 @@ Our solution has versatile applications, including:
    git clone <repository-url>
    cd <repository-directory>
 ## User-Interface
-Here is some screenshots of our application:
-![img1](Screenshots/img1.png) 
-![img2](Screenshots/img2.png) 
-![img3](Screenshots/img3.png)
-![img4](Screenshots/img4.png)
+Here are some screenshots of the app we developed:-
+<div style="display: flex; justify-content: space-between;">
+    <img src="Screenshots/img1.png" alt="Example Image 1" width="200" height="400" style="margin-right: 10px;">
+    <img src="Screenshots/img2.png" alt="Example Image 2" width="200" height="400" style="margin-right: 10px;">
+    <img src="Screenshots/img3.png" alt="Example Image 3" width="200" height="400" style="margin-right: 10px;">
+    <img src="Screenshots/img4.png" alt="Example Image 4" width="200" height="400">
+</div>
