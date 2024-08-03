@@ -55,6 +55,6 @@ Our solution has versatile applications, including:
 ## User-Interface
 Here is some screenshots of our application:
 ![img1](Screenshots/img1.png) 
-![img2](Screenshots/SIH20231106224235.png) 
-![img3](Screenshots/SIH20231106224235-Copy.png)
-![img4](Screenshots/SIH20231106224235-Copy(2).png)
+![img2](Screenshots/img2.png) 
+![img3](Screenshots/img3.png)
+![img4](Screenshots/img4.png)
