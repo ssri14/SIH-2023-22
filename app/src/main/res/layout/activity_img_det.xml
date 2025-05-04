@@ -13,7 +13,9 @@
         android:layout_width="224dp"
         android:layout_height="224dp"
         android:layout_margin="20dp"
-        android:background="#29363a"
+        android:src="@drawable/iv_image"
+        android:background="@drawable/shape"
+        android:backgroundTint="#29363a"
         android:layout_gravity="center"
         android:gravity="center"
         android:padding="10dp"
@@ -61,7 +63,7 @@
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:padding="10dp"
-        android:text="The above terrain is:"
+        android:text="Upload image"
         android:textSize="20sp" />
 
 </LinearLayout>
